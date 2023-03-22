@@ -13,11 +13,13 @@ const TodoItemContainer = styled.div`
     justify-content: space-between;
 `;
 
+export const getBorderStyleForDate = (startingDate, currentDate) =>
+(startingDate > new Date(currentDate - 8640000 * 5)
+    ? 'none'
+    : '2px solid red');
+
 const TodoItemContainerWithWarning = styled(TodoItemContainer)`
-    border-bottom: ${props => (new Date(props.createdAt) > new Date(Date.now() - 8640000 * 5)
-        ? 'none'
-        : '2px solid red'
-    )};
+    border-bottom: ${props => getBorderStyleForDate(new Date(props.createdAt), Date.now())};
 `;
 
 const TodoItemTitle = styled.h3`
