@@ -1,5 +1,5 @@
 import { configureStore, combineReducers, applyMiddleware } from '@reduxjs/toolkit';
-import { todos, isLoading } from './todos/reducers';
+import { todos } from './todos/reducers';
 import {
     persistReducer,
     FLUSH,
@@ -15,8 +15,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const reducers = {
-    todos,
-    isLoading
+    todos
 };
 
 const persistConfig = {
